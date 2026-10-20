@@ -15,7 +15,7 @@ jobs:
 
       - name: Extract Any ZIP File
         run: |
-          # রিপোজিটরিতে থাকা যেকোনো নামের .zip ফাইল আনজিপ করবে
+          # রিপোজিটরিতে থাকা যেকোনো .zip ফাইল আনজিপ করবে
           ZIP_FILE=$(ls *.zip | head -n 1)
           echo "Found zip file: $ZIP_FILE"
           unzip -o "$ZIP_FILE"
@@ -31,7 +31,7 @@ jobs:
 
       - name: Force Disable Debug Keystore
         run: |
-          # ফাইলের ভেতরের সেই debugConfig লাইনটি পুরোপুরি মুছে/কমেন্ট করে দেবে
+          # app/build.gradle.kts ফাইলের debugConfig লাইনটি পুরোপুরি মুছে ফেলবে
           sed -i '/signingConfig = signingConfigs.getByName("debugConfig")/d' app/build.gradle.kts
 
       - name: Set up JDK 17
